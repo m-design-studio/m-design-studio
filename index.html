@@ -7,6 +7,7 @@
 <title>M Design Studio</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -14,14 +15,14 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial, sans-serif;
-background:#fff;
+font-family:Arial,sans-serif;
+background:#ffffff;
 color:#222;
 }
 
 .hero{
-background:linear-gradient(135deg,#ffffff,#dffaf7);
 min-height:100vh;
+background:linear-gradient(135deg,#ffffff,#dffaf7);
 display:flex;
 flex-direction:column;
 align-items:center;
@@ -42,17 +43,10 @@ font-size:45px;
 
 .hero p{
 font-size:20px;
-margin:20px 0;
+margin:20px;
 line-height:1.8;
 }
 
-.btn{
-background:#10aaa5;
-color:white;
-padding:15px 35px;
-border-radius:30px;
-text-decoration:none;
-}
 
 section{
 padding:50px 20px;
@@ -65,100 +59,191 @@ font-size:32px;
 margin-bottom:30px;
 }
 
+
 .cards{
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
+flex-wrap:wrap;
 gap:20px;
 }
+
 
 .card{
 width:300px;
 border:1px solid #10aaa5;
 border-radius:20px;
-padding:15px;
-overflow:hidden;
+padding:20px;
+background:white;
 }
 
-.card img{
-width:100%;
-border-radius:15px;
+
+/* قلب بطاقة المنيو */
+
+.flip-card{
+height:250px;
+perspective:1000px;
+border:none;
 }
+
+
+.flip-inner{
+
+position:relative;
+width:100%;
+height:100%;
+transition:0.8s;
+transform-style:preserve-3d;
+
+}
+
+
+.flip-card:hover .flip-inner{
+
+transform:rotateY(180deg);
+
+}
+
+
+.flip-front,
+.flip-back{
+
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+border-radius:20px;
+border:1px solid #10aaa5;
+padding:20px;
+
+}
+
+
+.flip-front{
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+}
+
+
+.flip-back{
+
+transform:rotateY(180deg);
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+overflow:auto;
+
+}
+
+
+.flip-back img{
+
+width:100%;
+border-radius:10px;
+
+}
+
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="hero">
 
-<img class="logo" src="logo.png.jpg" alt="M Design Studio Logo">
+<img class="logo" src="logo.png.jpg">
 
 <h1>M Design Studio</h1>
 
 <p>
-اكتشف خدماتنا في التصميم الإبداعي وبناء الهوية البصرية.
+تصميم هويات بصرية ومنيوهات احترافية للمشاريع والعلامات التجارية.
 </p>
 
-<a class="btn" href="#services">
-اكتشف خدماتنا
-</a>
-
 </div>
 
-
-<section id="services">
-
-<h2 class="title">خدماتنا</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>تصميم الشعارات</h3>
-<p>شعارات احترافية تناسب علامتك التجارية.</p>
-</div>
-
-<div class="card">
-<h3>تصميم المنيو</h3>
-<p>منيوهات عصرية للمطاعم والكافيهات.</p>
-</div>
-
-<div class="card">
-<h3>الهوية البصرية</h3>
-<p>تصميم هوية متكاملة لمشروعك.</p>
-</div>
-
-</div>
-
-</section>
 
 
 <section>
 
-<h2 class="title">أعمالنا</h2>
+<h2 class="title">خدماتنا</h2>
+
 
 <div class="cards">
 
+
 <div class="card">
+
+<h3>تصميم الشعارات</h3>
+
+<p>
+شعارات احترافية تعكس هوية مشروعك.
+</p>
+
+</div>
+
+
+
+<div class="card flip-card">
+
+
+<div class="flip-inner">
+
+
+<div class="flip-front">
+
+<h3>تصميم المنيو</h3>
+
+<p>
+اضغط لعرض الأعمال
+</p>
+
+</div>
+
+
+
+<div class="flip-back">
+
+
 <img src="29af5ac23852679ebae26fa65d20f424.png">
-</div>
 
-<div class="card">
 <img src="2aa79027847b705c280faafd32b65841.jpeg">
-</div>
 
-<div class="card">
 <img src="bf3114097cccc4bfcb4b6cf27e623d23.png">
+
+<img src="IMG_1155.jpeg">
+
+
 </div>
 
-<div class="card">
-<img src="IMG_1155.jpeg">
+
 </div>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h3>الهوية البصرية</h3>
+
+<p>
+تصميم هوية متكاملة لعلامتك التجارية.
+</p>
+
+</div>
+
 
 </div>
 
 </section>
+
 
 
 </body>
