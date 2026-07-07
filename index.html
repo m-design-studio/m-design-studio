@@ -20,7 +20,6 @@ background:#fff;
 color:#222;
 }
 
-
 .hero{
 min-height:80vh;
 background:linear-gradient(135deg,#fff,#dffaf7);
@@ -84,7 +83,6 @@ margin-bottom:15px;
 
 
 button{
-
 background:#10aaa5;
 color:white;
 border:none;
@@ -92,12 +90,10 @@ padding:12px 25px;
 border-radius:25px;
 cursor:pointer;
 margin-top:15px;
-
 }
 
 
-
-/* معرض الصور */
+/* المعرض */
 
 .gallery{
 
@@ -122,6 +118,7 @@ padding:20px;
 border-radius:20px;
 display:flex;
 align-items:center;
+justify-content:center;
 gap:20px;
 width:90%;
 max-width:600px;
@@ -164,7 +161,6 @@ cursor:pointer;
 
 </head>
 
-
 <body>
 
 
@@ -181,12 +177,9 @@ cursor:pointer;
 </div>
 
 
-
 <section>
 
-<h2 class="title">
-خدماتنا
-</h2>
+<h2 class="title">خدماتنا</h2>
 
 
 <div class="cards">
@@ -198,7 +191,6 @@ cursor:pointer;
 </div>
 
 
-
 <div class="card">
 
 <h3>تصميم المنيو</h3>
@@ -207,58 +199,77 @@ cursor:pointer;
 منيوهات عصرية للمطاعم والكافيهات.
 </p>
 
-<button onclick="openGallery()">
+<button onclick="openMenu()">
 عرض التصاميم
 </button>
 
 </div>
 
 
-
 <div class="card">
+
 <h3>الهوية البصرية</h3>
+
 <p>
 تصميم هوية متكاملة للعلامات التجارية.
 </p>
-</div>
 
+</div>
 
 
 <div class="card">
+
 <h3>البوسترات الإعلانية</h3>
+
 <p>
 تصاميم إعلانية للسوشيال ميديا.
 </p>
-</div>
 
+<button onclick="openPosters()">
+عرض التصاميم
+</button>
+
+</div>
 
 
 </div>
 
 </section>
+<!-- معرض المنيو -->
 
+<div class="gallery" id="menuGallery">
 
-
-<div class="gallery" id="gallery">
-
-
-<span class="close" onclick="closeGallery()">×</span>
-
+<span class="close" onclick="closeMenu()">×</span>
 
 <div class="gallery-box">
 
-
-<span class="arrow" onclick="prevImage()">‹</span>
-
+<span class="arrow" onclick="prevMenu()">‹</span>
 
 <img id="menuImage" src="29af5ac23852679ebae26fa65d20f424.png">
 
-
-<span class="arrow" onclick="nextImage()">›</span>
-
+<span class="arrow" onclick="nextMenu()">›</span>
 
 </div>
 
+</div>
+
+
+
+<!-- معرض البوسترات -->
+
+<div class="gallery" id="posterGallery">
+
+<span class="close" onclick="closePosters()">×</span>
+
+<div class="gallery-box">
+
+<span class="arrow" onclick="prevPoster()">‹</span>
+
+<img id="posterImage" src="IMG_1141.jpeg">
+
+<span class="arrow" onclick="nextPoster()">›</span>
+
+</div>
 
 </div>
 
@@ -266,7 +277,10 @@ cursor:pointer;
 
 <script>
 
-let images=[
+
+// صور المنيو
+
+let menuImages=[
 "29af5ac23852679ebae26fa65d20f424.png",
 "2aa79027847b705c280faafd32b65841.jpeg",
 "bf3114097cccc4bfcb4b6cf27e623d23.png",
@@ -274,47 +288,111 @@ let images=[
 ];
 
 
-let current=0;
+let menuIndex=0;
 
 
-function openGallery(){
 
-document.getElementById("gallery").style.display="flex";
+function openMenu(){
 
-}
-
-
-function closeGallery(){
-
-document.getElementById("gallery").style.display="none";
+document.getElementById("menuGallery").style.display="flex";
 
 }
 
 
 
-function nextImage(){
+function closeMenu(){
 
-current++;
-
-if(current>=images.length){
-current=0;
-}
-
-document.getElementById("menuImage").src=images[current];
+document.getElementById("menuGallery").style.display="none";
 
 }
 
 
 
-function prevImage(){
+function nextMenu(){
 
-current--;
+menuIndex++;
 
-if(current<0){
-current=images.length-1;
+if(menuIndex>=menuImages.length){
+menuIndex=0;
 }
 
-document.getElementById("menuImage").src=images[current];
+document.getElementById("menuImage").src=menuImages[menuIndex];
+
+}
+
+
+
+function prevMenu(){
+
+menuIndex--;
+
+if(menuIndex<0){
+menuIndex=menuImages.length-1;
+}
+
+document.getElementById("menuImage").src=menuImages[menuIndex];
+
+}
+
+
+
+
+// صور البوسترات
+
+let posterImages=[
+
+"IMG_1141.jpeg",
+"IMG_1144.jpeg",
+"IMG_1145.jpeg",
+"3932a3a1739259aff6223a195dff3ecf.png",
+"IMG_1166.jpeg"
+
+];
+
+
+let posterIndex=0;
+
+
+
+function openPosters(){
+
+document.getElementById("posterGallery").style.display="flex";
+
+}
+
+
+
+function closePosters(){
+
+document.getElementById("posterGallery").style.display="none";
+
+}
+
+
+
+function nextPoster(){
+
+posterIndex++;
+
+if(posterIndex>=posterImages.length){
+posterIndex=0;
+}
+
+document.getElementById("posterImage").src=posterImages[posterIndex];
+
+}
+
+
+
+function prevPoster(){
+
+posterIndex--;
+
+if(posterIndex<0){
+posterIndex=posterImages.length-1;
+}
+
+document.getElementById("posterImage").src=posterImages[posterIndex];
 
 }
 
