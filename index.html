@@ -21,41 +21,38 @@ color:#222;
 }
 
 
-/* الصفحة الرئيسية */
-
 .hero{
 min-height:80vh;
-background:linear-gradient(135deg,#ffffff,#dffaf7);
+background:linear-gradient(135deg,#fff,#dffaf7);
 display:flex;
 flex-direction:column;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
 padding:30px;
 }
 
 .logo{
 width:170px;
-margin-bottom:20px;
 }
 
 h1{
+margin-top:20px;
 font-size:45px;
 color:#10aaa5;
 }
 
 .hero p{
 font-size:20px;
-margin-top:20px;
+margin-top:15px;
 }
 
-
-/* الخدمات */
 
 section{
 padding:50px 20px;
 text-align:center;
 }
+
 
 .title{
 color:#10aaa5;
@@ -65,31 +62,24 @@ margin-bottom:30px;
 
 
 .cards{
-
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:25px;
-
+gap:20px;
 }
 
 
 .card{
-
 width:300px;
 padding:25px;
 border-radius:20px;
-background:white;
 border:1px solid #10aaa5;
-
 }
 
 
 .card h3{
-
-margin-bottom:15px;
 color:#10aaa5;
-
+margin-bottom:15px;
 }
 
 
@@ -101,12 +91,13 @@ border:none;
 padding:12px 25px;
 border-radius:25px;
 cursor:pointer;
+margin-top:15px;
 
 }
 
 
 
-/* نافذة التصاميم */
+/* معرض الصور */
 
 .gallery{
 
@@ -116,11 +107,10 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
-z-index:100;
-
+background:rgba(0,0,0,.85);
 align-items:center;
 justify-content:center;
+z-index:99;
 
 }
 
@@ -128,22 +118,32 @@ justify-content:center;
 .gallery-box{
 
 background:white;
-width:90%;
-max-width:700px;
 padding:20px;
 border-radius:20px;
-
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
+display:flex;
+align-items:center;
+gap:20px;
+width:90%;
+max-width:600px;
 
 }
 
 
 .gallery-box img{
 
-width:100%;
+width:80%;
+max-height:500px;
+object-fit:contain;
 border-radius:15px;
+
+}
+
+
+.arrow{
+
+font-size:35px;
+cursor:pointer;
+color:#10aaa5;
 
 }
 
@@ -158,6 +158,7 @@ color:white;
 cursor:pointer;
 
 }
+
 
 </style>
 
@@ -192,27 +193,18 @@ cursor:pointer;
 
 
 <div class="card">
-
-<h3>
-تصميم الشعارات
-</h3>
-
-<p>
-شعارات احترافية تعكس هوية مشروعك
-</p>
-
+<h3>تصميم الشعارات</h3>
+<p>شعارات احترافية تعكس هوية مشروعك.</p>
 </div>
 
 
 
 <div class="card">
 
-<h3>
-تصميم المنيو
-</h3>
+<h3>تصميم المنيو</h3>
 
 <p>
-منيوهات عصرية للمطاعم والكافيهات
+منيوهات عصرية للمطاعم والكافيهات.
 </p>
 
 <button onclick="openGallery()">
@@ -224,30 +216,21 @@ cursor:pointer;
 
 
 <div class="card">
-
-<h3>
-الهوية البصرية
-</h3>
-
+<h3>الهوية البصرية</h3>
 <p>
-تصميم هوية متكاملة للعلامات التجارية
+تصميم هوية متكاملة للعلامات التجارية.
 </p>
-
 </div>
 
 
 
 <div class="card">
-
-<h3>
-البوسترات الإعلانية
-</h3>
-
+<h3>البوسترات الإعلانية</h3>
 <p>
-تصاميم إعلانية للسوشيال ميديا والعروض
+تصاميم إعلانية للسوشيال ميديا.
 </p>
-
 </div>
+
 
 
 </div>
@@ -256,25 +239,22 @@ cursor:pointer;
 
 
 
-
 <div class="gallery" id="gallery">
 
 
-<span class="close" onclick="closeGallery()">
-×
-</span>
+<span class="close" onclick="closeGallery()">×</span>
 
 
 <div class="gallery-box">
 
 
-<img src="29af5ac23852679ebae26fa65d20f424.png">
+<span class="arrow" onclick="prevImage()">‹</span>
 
-<img src="2aa79027847b705c280faafd32b65841.jpeg">
 
-<img src="bf3114097cccc4bfcb4b6cf27e623d23.png">
+<img id="menuImage" src="29af5ac23852679ebae26fa65d20f424.png">
 
-<img src="IMG_1155.jpeg">
+
+<span class="arrow" onclick="nextImage()">›</span>
 
 
 </div>
@@ -286,6 +266,17 @@ cursor:pointer;
 
 <script>
 
+let images=[
+"29af5ac23852679ebae26fa65d20f424.png",
+"2aa79027847b705c280faafd32b65841.jpeg",
+"bf3114097cccc4bfcb4b6cf27e623d23.png",
+"IMG_1155.jpeg"
+];
+
+
+let current=0;
+
+
 function openGallery(){
 
 document.getElementById("gallery").style.display="flex";
@@ -296,6 +287,34 @@ document.getElementById("gallery").style.display="flex";
 function closeGallery(){
 
 document.getElementById("gallery").style.display="none";
+
+}
+
+
+
+function nextImage(){
+
+current++;
+
+if(current>=images.length){
+current=0;
+}
+
+document.getElementById("menuImage").src=images[current];
+
+}
+
+
+
+function prevImage(){
+
+current--;
+
+if(current<0){
+current=images.length-1;
+}
+
+document.getElementById("menuImage").src=images[current];
 
 }
 
