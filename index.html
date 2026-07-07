@@ -247,14 +247,37 @@ border-radius:10px;
 </section>
 
 
+</section>
+
+<div id="menuGallery" class="gallery">
+
+<div class="gallery-box">
+
+<span onclick="closeMenu()" class="close">×</span>
+
+<img src="29af5ac23852679ebae26fa65d20f424.png">
+<img src="2aa79027847b705c280faafd32b65841.jpeg">
+<img src="bf3114097cccc4bfcb4b6cf27e623d23.png">
+<img src="IMG_1155.jpeg">
+
+</div>
+
+</div>
+
+
 <script>
 
-document.querySelector(".flip-card").addEventListener("click", function(){
+function openMenu(){
+document.getElementById("menuGallery").style.display="flex";
+}
 
-this.classList.toggle("active");
-
-});
+function closeMenu(){
+document.getElementById("menuGallery").style.display="none";
+}
 
 </script>
+
+</body>
+</html>
 </body>
 </html>
