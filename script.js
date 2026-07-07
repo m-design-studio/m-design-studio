@@ -19,9 +19,11 @@ poster:[
 
 brand:[
 "469556c6f63d54e79171e0a62d780078.png"
-]brand:[
-"469556c6f63d54e79171e0a62d780078.png"
 ],
+
+logo:[
+"IMG_1292.jpeg"
+]
 
 
 logo:[
