@@ -6,180 +6,28 @@
 
 <title>M Design Studio</title>
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial,sans-serif;
-background:#fff;
-color:#222;
-}
-
-.hero{
-min-height:80vh;
-background:linear-gradient(135deg,#fff,#dffaf7);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-}
-
-.logo{
-width:170px;
-}
-
-h1{
-margin-top:20px;
-font-size:45px;
-color:#10aaa5;
-}
-
-.hero p{
-font-size:20px;
-margin-top:15px;
-}
-
-
-section{
-padding:50px 20px;
-text-align:center;
-}
-
-
-.title{
-color:#10aaa5;
-font-size:32px;
-margin-bottom:30px;
-}
-
-
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-
-.card{
-width:300px;
-padding:25px;
-border-radius:20px;
-border:1px solid #10aaa5;
-}
-
-
-.card h3{
-color:#10aaa5;
-margin-bottom:15px;
-}
-
-
-button{
-background:#10aaa5;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:25px;
-cursor:pointer;
-margin-top:15px;
-}
-
-
-/* المعرض */
-
-.gallery{
-
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.85);
-align-items:center;
-justify-content:center;
-z-index:99;
-
-}
-
-
-.gallery-box{
-
-background:white;
-padding:20px;
-border-radius:20px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:20px;
-width:90%;
-max-width:600px;
-
-}
-
-
-.gallery-box img{
-
-width:80%;
-max-height:500px;
-object-fit:contain;
-border-radius:15px;
-
-}
-
-
-.arrow{
-
-font-size:35px;
-cursor:pointer;
-color:#10aaa5;
-
-}
-
-
-.close{
-
-position:absolute;
-top:20px;
-right:30px;
-font-size:40px;
-color:white;
-cursor:pointer;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+<header class="hero">
 
-<div class="hero">
-
-<img class="logo" src="logo.png.jpg">
+<img src="logo.png.jpg" class="logo" alt="M Design Studio">
 
 <h1>M Design Studio</h1>
 
 <p>
-تصميم هويات بصرية ومنتجات رقمية باحترافية
+نصمم هويات بصرية، منيوهات، وبوسترات إعلانية باحترافية
 </p>
 
-</div>
+</header>
 
 
-<section>
+<section class="services">
 
-<h2 class="title">خدماتنا</h2>
+<h2>خدماتنا</h2>
 
 
 <div class="cards">
@@ -187,8 +35,11 @@ cursor:pointer;
 
 <div class="card">
 <h3>تصميم الشعارات</h3>
-<p>شعارات احترافية تعكس هوية مشروعك.</p>
+<p>
+شعارات احترافية تعكس هوية مشروعك.
+</p>
 </div>
+
 
 
 <div class="card">
@@ -196,14 +47,15 @@ cursor:pointer;
 <h3>تصميم المنيو</h3>
 
 <p>
-منيوهات عصرية للمطاعم والكافيهات.
+تصاميم منيو عصرية للمطاعم والكافيهات.
 </p>
 
-<button onclick="openMenu()">
+<button onclick="openGallery('menu')">
 عرض التصاميم
 </button>
 
 </div>
+
 
 
 <div class="card">
@@ -211,14 +63,15 @@ cursor:pointer;
 <h3>الهوية البصرية</h3>
 
 <p>
-تصميم هوية متكاملة للعلامات التجارية.
+هوية متكاملة للعلامات التجارية.
 </p>
 
-<button onclick="openBrand()">
+<button onclick="openGallery('brand')">
 عرض التصاميم
 </button>
 
 </div>
+
 
 
 <div class="card">
@@ -229,7 +82,7 @@ cursor:pointer;
 تصاميم إعلانية للسوشيال ميديا.
 </p>
 
-<button onclick="openPosters()">
+<button onclick="openGallery('poster')">
 عرض التصاميم
 </button>
 
@@ -239,39 +92,20 @@ cursor:pointer;
 </div>
 
 </section>
-<!-- معرض المنيو -->
-
-<div class="gallery" id="menuGallery">
-
-<span class="close" onclick="closeMenu()">×</span>
-
-<div class="gallery-box">
-
-<span class="arrow" onclick="prevMenu()">‹</span>
-
-<img id="menuImage" src="29af5ac23852679ebae26fa65d20f424.png">
-
-<span class="arrow" onclick="nextMenu()">›</span>
-
-</div>
-
-</div>
 
 
 
-<!-- معرض البوسترات -->
+<div class="gallery" id="gallery">
 
-<div class="gallery" id="posterGallery">
+<span class="close" onclick="closeGallery()">×</span>
 
-<span class="close" onclick="closePosters()">×</span>
+<div class="gallery-content">
 
-<div class="gallery-box">
+<button onclick="prevImage()">‹</button>
 
-<span class="arrow" onclick="prevPoster()">‹</span>
+<img id="galleryImage">
 
-<img id="posterImage" src="IMG_1141.jpeg">
-
-<span class="arrow" onclick="nextPoster()">›</span>
+<button onclick="nextImage()">›</button>
 
 </div>
 
@@ -279,130 +113,7 @@ cursor:pointer;
 
 
 
-<script>
-
-
-// صور المنيو
-
-let menuImages=[
-"29af5ac23852679ebae26fa65d20f424.png",
-"2aa79027847b705c280faafd32b65841.jpeg",
-"bf3114097cccc4bfcb4b6cf27e623d23.png",
-"IMG_1155.jpeg"
-];
-
-
-let menuIndex=0;
-
-
-
-function openMenu(){
-
-document.getElementById("menuGallery").style.display="flex";
-
-}
-
-
-
-function closeMenu(){
-
-document.getElementById("menuGallery").style.display="none";
-
-}
-
-
-
-function nextMenu(){
-
-menuIndex++;
-
-if(menuIndex>=menuImages.length){
-menuIndex=0;
-}
-
-document.getElementById("menuImage").src=menuImages[menuIndex];
-
-}
-
-
-
-function prevMenu(){
-
-menuIndex--;
-
-if(menuIndex<0){
-menuIndex=menuImages.length-1;
-}
-
-document.getElementById("menuImage").src=menuImages[menuIndex];
-
-}
-
-
-
-
-// صور البوسترات
-
-let posterImages=[
-
-"IMG_1141.jpeg",
-"IMG_1144.jpeg",
-"IMG_1145.jpeg",
-"3932a3a1739259aff6223a195dff3ecf.png",
-"IMG_1166.jpeg"
-
-];
-
-
-let posterIndex=0;
-
-
-
-function openPosters(){
-
-document.getElementById("posterGallery").style.display="flex";
-
-}
-
-
-
-function closePosters(){
-
-document.getElementById("posterGallery").style.display="none";
-
-}
-
-
-
-function nextPoster(){
-
-posterIndex++;
-
-if(posterIndex>=posterImages.length){
-posterIndex=0;
-}
-
-document.getElementById("posterImage").src=posterImages[posterIndex];
-
-}
-
-
-
-function prevPoster(){
-
-posterIndex--;
-
-if(posterIndex<0){
-posterIndex=posterImages.length-1;
-}
-
-document.getElementById("posterImage").src=posterImages[posterIndex];
-
-}
-
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 </html>
