@@ -97,9 +97,13 @@ transform-style:preserve-3d;
 }
 
 
-.flip-card:hover .flip-inner{
+.flip-card.active .flip-inner{
 
 transform:rotateY(180deg);
+
+}
+
+
 
 }
 
@@ -245,6 +249,14 @@ border-radius:10px;
 </section>
 
 
+<script>
 
+document.querySelector(".flip-card").addEventListener("click", function(){
+
+this.classList.toggle("active");
+
+});
+
+</script>
 </body>
 </html>
