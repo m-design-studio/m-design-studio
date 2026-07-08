@@ -1,285 +1,123 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#ffffff;
-color:#222;
+    background:#f8ffff;
+    color:#222;
 }
 
+
+/* ===== Hero ===== */
 
 .hero{
-
-min-height:80vh;
-background:linear-gradient(135deg,#ffffff,#dffaf7);
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-padding:30px;
-
+    text-align:center;
+    padding:50px 20px;
+    background:linear-gradient(135deg,#ffffff,#d9ffff);
 }
-
 
 .logo{
-
-width:180px;
-margin-bottom:20px;
-
+    width:170px;
+    border-radius:50%;
+    margin-bottom:20px;
 }
-
 
 .hero h1{
-
-font-size:45px;
-color:#10aaa5;
-margin-bottom:15px;
-
+    color:#00a6a6;
+    font-size:45px;
+    margin-bottom:15px;
 }
-
 
 .hero p{
-
-font-size:20px;
-
+    font-size:18px;
+    color:#555;
 }
 
 
-
-/* الخدمات */
+/* ===== Services ===== */
 
 .services{
-
-padding:60px 20px;
-text-align:center;
-
+    padding:40px 20px;
 }
-
 
 .services h2{
-
-font-size:35px;
-color:#10aaa5;
-margin-bottom:40px;
-
+    text-align:center;
+    color:#009999;
+    font-size:32px;
+    margin-bottom:30px;
 }
 
 
 .cards{
-
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    max-width:1200px;
+    margin:auto;
 }
 
 
+/* ===== Cards ===== */
 
 .card{
-
-width:300px;
-
-padding:30px;
-
-border:1px solid #10aaa5;
-
-border-radius:20px;
-
-background:white;
-
-transition:.3s;
-
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    transition:.3s;
 }
-
-
 
 .card:hover{
-
-transform:translateY(-8px);
-
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,180,180,.3);
 }
-
-
 
 .card h3{
-
-color:#10aaa5;
-
-margin-bottom:15px;
-
+    color:#00a6a6;
+    margin-bottom:15px;
 }
-
 
 .card p{
-
-line-height:1.7;
-
+    color:#555;
+    line-height:1.7;
+    margin-bottom:20px;
 }
 
 
+.card button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#00b8b8;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
 
-button{
-
-background:#10aaa5;
-
-color:white;
-
-border:none;
-
-padding:12px 25px;
-
-border-radius:25px;
-
-cursor:pointer;
-
-margin-top:20px;
-
-font-size:16px;
-
+.card button:hover{
+    background:#008f8f;
 }
 
 
-
-button:hover{
-
-opacity:.8;
-
-}
-
-
-
-/* المعرض */
-
-.gallery{
-
-display:none;
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.85);
-
-align-items:center;
-
-justify-content:center;
-
-z-index:100;
-
-}
-
-
-
-.gallery-content{
-
-background:white;
-
-padding:20px;
-
-border-radius:20px;
-
-display:flex;
-
-align-items:center;
-
-gap:20px;
-
-max-width:700px;
-
-width:90%;
-
-}
-
-
-
-.gallery-content img{
-
-width:80%;
-
-max-height:500px;
-
-object-fit:contain;
-
-border-radius:15px;
-
-}
-
-
-
-.close{
-
-position:absolute;
-
-top:20px;
-
-right:30px;
-
-font-size:45px;
-
-color:white;
-
-cursor:pointer;
-
-}
-
-
-
-/* للموبايل */
-
-@media(max-width:600px){
-
-.hero h1{
-
-font-size:35px;
-
-}
-
-
-.cards{
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-
-.gallery-content img{
-
-width:75%;
-
-}
-
-}
-/* ===== معرض الصور الاحترافي ===== */
+/* ===== Gallery ===== */
 
 .gallery{
     display:none;
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
+    inset:0;
+    background:rgba(0,0,0,.85);
     backdrop-filter:blur(8px);
     justify-content:center;
     align-items:center;
-    z-index:9999;
-    animation:fadeIn .3s ease;
+    z-index:999;
 }
+
 
 .gallery-content{
     display:flex;
@@ -287,55 +125,68 @@ width:75%;
     gap:20px;
 }
 
+
 .gallery img{
-    max-width:85vw;
+    max-width:80vw;
     max-height:80vh;
-    border-radius:18px;
-    box-shadow:0 0 35px rgba(0,255,255,.35);
-    animation:zoomIn .3s ease;
+    border-radius:20px;
 }
+
 
 .gallery button{
-    width:55px;
-    height:55px;
+    width:50px;
+    height:50px;
     border:none;
     border-radius:50%;
-    background:#00d4d4;
-    color:#fff;
-    font-size:28px;
-    cursor:pointer;
-    transition:.3s;
+    background:#00b8b8;
+    color:white;
+    font-size:30px;
 }
 
-.gallery button:hover{
-    transform:scale(1.1);
-}
 
 .close{
     position:absolute;
-    top:25px;
-    right:35px;
+    top:20px;
+    right:30px;
     color:white;
-    font-size:42px;
-    cursor:pointer;
+    font-size:40px;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-    }
-    to{
-        opacity:1;
-    }
-}
 
-@keyframes zoomIn{
-    from{
-        transform:scale(.85);
-        opacity:0;
+/* ===== Mobile ===== */
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:35px;
     }
-    to{
-        transform:scale(1);
-        opacity:1;
+
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+        padding:10px;
     }
+
+
+    .card{
+        padding:15px;
+    }
+
+
+    .card h3{
+        font-size:18px;
+    }
+
+
+    .card p{
+        font-size:13px;
+    }
+
+
+    .card button{
+        font-size:13px;
+        padding:10px;
+    }
+
 }
