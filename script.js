@@ -16,7 +16,9 @@ let images = {
     ],
 
     brand: [
-        "469556c6f63d54e79171e0a62d780078.png"
+    "469556c6f63d54e79171e0a62d780078.png",
+    "IMG_1370.jpeg"
+],
     ],
 
     logo: [
