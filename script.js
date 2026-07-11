@@ -16,10 +16,9 @@ let images = {
     ],
 
     brand: [
-    "469556c6f63d54e79171e0a62d780078.png",
-    "IMG_1370.jpeg"
-],
-
+        "469556c6f63d54e79171e0a62d780078.png",
+        "IMG_1370.jpeg"
+    ],
 
     logo: [
         "IMG_1292.jpeg"
@@ -27,22 +26,32 @@ let images = {
 
 };
 
+
 let currentImages = [];
 let currentIndex = 0;
 
+
 function openGallery(type) {
+
     currentImages = images[type];
     currentIndex = 0;
 
     document.getElementById("galleryImage").src = currentImages[currentIndex];
+
     document.getElementById("gallery").style.display = "flex";
+
 }
+
 
 function closeGallery() {
+
     document.getElementById("gallery").style.display = "none";
+
 }
 
+
 function nextImage() {
+
     currentIndex++;
 
     if (currentIndex >= currentImages.length) {
@@ -50,9 +59,12 @@ function nextImage() {
     }
 
     document.getElementById("galleryImage").src = currentImages[currentIndex];
+
 }
 
+
 function prevImage() {
+
     currentIndex--;
 
     if (currentIndex < 0) {
@@ -60,4 +72,5 @@ function prevImage() {
     }
 
     document.getElementById("galleryImage").src = currentImages[currentIndex];
+
 }
